@@ -2,11 +2,16 @@
 // Hebergratuit - Main JavaScript
 // ========================================
 
+// ----------------------------------------
+// Elements
+// ----------------------------------------
+
 const menuToggle = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".primary-navigation");
 const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
 const dropdownItems = document.querySelectorAll(".has-dropdown");
 const hero = document.querySelector(".hero");
+
 
 // ========================================
 // Hero Animation
@@ -17,6 +22,7 @@ if (hero) {
     hero.classList.add("is-visible");
   });
 }
+
 
 // ========================================
 // Dropdown Helpers
@@ -34,6 +40,7 @@ function closeDropdown(dropdown) {
   }
 }
 
+
 function closeAllDropdowns(except = null) {
   dropdownItems.forEach((dropdown) => {
     if (dropdown !== except) {
@@ -42,27 +49,6 @@ function closeAllDropdowns(except = null) {
   });
 }
 
-function toggleDropdown(dropdown) {
-  if (!dropdown) return;
-
-  const isOpen = dropdown.classList.contains("is-open");
-
-  // Close all other dropdowns first
-  closeAllDropdowns(dropdown);
-
-  // Toggle current dropdown
-  if (isOpen) {
-    closeDropdown(dropdown);
-  } else {
-    dropdown.classList.add("is-open");
-
-    const toggle = dropdown.querySelector(".dropdown-toggle");
-
-    if (toggle) {
-      toggle.setAttribute("aria-expanded", "true");
-    }
-  }
-}
 
 // ========================================
 // Mobile Menu
@@ -83,7 +69,9 @@ if (menuToggle && navigation) {
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Ouvrir le menu");
 
+      // Close all dropdowns
       closeAllDropdowns();
+
     } else {
       // Open mobile menu
       navigation.classList.add("is-open");
@@ -94,12 +82,20 @@ if (menuToggle && navigation) {
   });
 }
 
+
 // ========================================
-// Dropdown Click
+// Mobile Dropdown
 // ========================================
 
 dropdownToggles.forEach((toggle) => {
+
   toggle.addEventListener("click", (event) => {
+
+    // Desktop doesn't use click behavior
+    if (window.innerWidth > 900) {
+      return;
+    }
+
     event.preventDefault();
     event.stopPropagation();
 
@@ -107,90 +103,209 @@ dropdownToggles.forEach((toggle) => {
 
     if (!dropdown) return;
 
-    toggleDropdown(dropdown);
+    const isOpen =
+      dropdown.classList.contains("is-open");
+
+
+    // ------------------------------------
+    // If already open -> CLOSE it
+    // ------------------------------------
+
+    if (isOpen) {
+
+      dropdown.classList.remove("is-open");
+
+      toggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      return;
+    }
+
+
+    // ------------------------------------
+    // Close other dropdowns
+    // ------------------------------------
+
+    closeAllDropdowns(dropdown);
+
+
+    // ------------------------------------
+    // Open current dropdown
+    // ------------------------------------
+
+    dropdown.classList.add("is-open");
+
+    toggle.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
   });
+
 });
 
+
 // ========================================
-// Desktop Hover
+// Desktop Dropdown Hover
 // ========================================
 
 dropdownItems.forEach((dropdown) => {
-  const toggle = dropdown.querySelector(".dropdown-toggle");
 
-  if (!toggle) return;
+  const toggle =
+    dropdown.querySelector(".dropdown-toggle");
+
+
+  // --------------------------------------
+  // Mouse Enter
+  // --------------------------------------
 
   dropdown.addEventListener("mouseenter", () => {
-    // Hover only on desktop
-    if (window.innerWidth <= 900) return;
+
+    // Only desktop
+    if (window.innerWidth <= 900) {
+      return;
+    }
 
     closeAllDropdowns(dropdown);
 
     dropdown.classList.add("is-open");
-    toggle.setAttribute("aria-expanded", "true");
+
+    if (toggle) {
+      toggle.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+    }
+
   });
+
+
+  // --------------------------------------
+  // Mouse Leave
+  // --------------------------------------
 
   dropdown.addEventListener("mouseleave", () => {
-    // Hover only on desktop
-    if (window.innerWidth <= 900) return;
 
-    closeDropdown(dropdown);
+    // Only desktop
+    if (window.innerWidth <= 900) {
+      return;
+    }
+
+    dropdown.classList.remove("is-open");
+
+    if (toggle) {
+      toggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+    }
+
   });
+
 });
 
+
 // ========================================
-// Close Dropdown When Clicking Outside
+// Close Mobile Dropdown When Clicking
+// Outside
 // ========================================
 
 document.addEventListener("click", (event) => {
-  const clickedInsideNavigation =
-    navigation && navigation.contains(event.target);
 
-  if (!clickedInsideNavigation) {
-    closeAllDropdowns();
+  // Only mobile
+  if (window.innerWidth > 900) {
+    return;
   }
+
+  // If click is inside dropdown, do nothing
+  if (event.target.closest(".has-dropdown")) {
+    return;
+  }
+
+  // Otherwise close everything
+  closeAllDropdowns();
+
 });
 
+
 // ========================================
-// Close Menu / Dropdown With Escape
+// Escape Key
 // ========================================
 
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") return;
+
+  if (event.key !== "Escape") {
+    return;
+  }
 
   // Close dropdowns
   closeAllDropdowns();
+
 
   // Close mobile menu
   if (navigation) {
     navigation.classList.remove("is-open");
   }
 
+
   if (menuToggle) {
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      "Ouvrir le menu"
+    );
+
   }
+
 });
 
+
 // ========================================
-// Handle Window Resize
+// Window Resize
 // ========================================
 
 window.addEventListener("resize", () => {
-  // When switching to desktop
+
+  // --------------------------------------
+  // Switch to Desktop
+  // --------------------------------------
+
   if (window.innerWidth > 900) {
+
     if (navigation) {
       navigation.classList.remove("is-open");
     }
 
     if (menuToggle) {
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Ouvrir le menu"
+      );
+
     }
+
   }
 
-  // When switching to mobile
+
+  // --------------------------------------
+  // Switch to Mobile
+  // --------------------------------------
+
   if (window.innerWidth <= 900) {
     closeAllDropdowns();
   }
+
 });
