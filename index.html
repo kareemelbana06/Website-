@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#050914">
+    <title>Hebergratuit.com | Hébergement web gratuit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <img class="brand-logo" src="assets/hebergratuit-logo.svg" alt="Hebergratuit.com">
+        </div>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="primary-navigation" id="primary-navigation" aria-label="Navigation principale">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="plain-nav-link" href="https://www.hebergratuit.com/">Accueil</a></li>
+            <li class="nav-item has-dropdown">
+              <div class="nav-link-wrap">
+                <a href="https://www.hebergratuit.com/panel/index.php?rp=/store/hebergement-web">Hébergement</a>
+                <button class="dropdown-toggle" type="button" aria-expanded="false" aria-label="Afficher les liens Hébergement"><span></span></button>
+              </div>
+              <ul class="dropdown-menu">
+                <li class="dropdown-heading">Découvrir</li>
+                <li><a href="https://www.hebergratuit.com/panel/index.php?rp=/store/hebergement-web"><span class="dropdown-icon" aria-hidden="true">→</span><span class="dropdown-copy"><strong>Hébergement Gratuit</strong><small>Votre site en ligne, sans frais</small></span></a></li>
+                <li><a href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting"><span class="dropdown-icon" aria-hidden="true">→</span><span class="dropdown-copy"><strong>Server</strong><small>Infrastructure haute performance</small></span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+              <div class="nav-link-wrap">
+                <a href="https://www.azote.org/">Domaines</a>
+                <button class="dropdown-toggle" type="button" aria-expanded="false" aria-label="Afficher les liens Domaines"><span></span></button>
+              </div>
+              <ul class="dropdown-menu">
+                <li class="dropdown-heading">Découvrir</li>
+                <li><a href="https://www.azote.org/"><span class="dropdown-icon" aria-hidden="true">→</span><span class="dropdown-copy"><strong>Nom de domaine gratuit</strong><small>Choisissez votre adresse en ligne</small></span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item has-dropdown">
+              <div class="nav-link-wrap">
+                <a href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting">Emails</a>
+                <button class="dropdown-toggle" type="button" aria-expanded="false" aria-label="Afficher les liens Emails"><span></span></button>
+              </div>
+              <ul class="dropdown-menu">
+                <li class="dropdown-heading">Découvrir</li>
+                <li><a href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting"><span class="dropdown-icon" aria-hidden="true">→</span><span class="dropdown-copy"><strong>Emails</strong><small>Une messagerie pour votre domaine</small></span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="plain-nav-link" href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting">Server</a></li>
+            <li class="nav-item"><a class="plain-nav-link" href="https://www.hebergratuit.com/manage/client/plugin/support_manager/client_tickets/departments/">Contact</a></li>
+          </ul>
+          <a class="header-client" href="https://www.hebergratuit.com/manage/client/login/"><span aria-hidden="true"></span>Espace Client</a>
+          <a class="button button-primary header-cta" href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting">Inscription <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Hébergement web 100% gratuit</p>
+            <h1 id="hero-title">Créez votre siteweb<br><span>Gratuitement</span></h1>
+            <p class="hero-description">Lancez votre site sans compromis. Un hébergement rapide, sécurisé et réellement gratuit, soutenu par une infrastructure professionnelle.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting">Inscription <span aria-hidden="true">→</span></a>
+              <a class="button button-secondary" href="https://www.azote.org/">Nom de domaine Gratuit</a>
+            </div>
+            <p class="trust-note"><span aria-hidden="true">✓</span>Aucune carte bancaire requise</p>
+            <dl class="metrics" aria-label="Indicateurs de service">
+              <div><dt><span aria-hidden="true">●</span>99.99%</dt><dd>Uptime SLA</dd></div>
+              <div><dt><span aria-hidden="true">+</span>12K+</dt><dd>Clients actifs</dd></div>
+              <div><dt><span aria-hidden="true">↗</span>&lt; 20ms</dt><dd>Faible latence</dd></div>
+            </dl>
+          </div>
+
+          <div class="hero-visual" role="img" aria-label="Tableau de bord de supervision des serveurs, disponibilité 99,99% et protection SSL active">
+            <div class="hv-ring" aria-hidden="true"></div>
+            <div class="hv-panel" aria-hidden="true">
+              <div class="hv-panel-head"><span>HEBERGRATUIT / NODE 01</span><span class="hv-live"><i></i>LIVE</span></div>
+              <div class="hv-racks"><div class="hv-rack"><span class="hv-rack-id">01</span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span></div><div class="hv-rack"><span class="hv-rack-id">02</span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span></div><div class="hv-rack"><span class="hv-rack-id">03</span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span></div><div class="hv-rack"><span class="hv-rack-id">04</span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span><span class="hv-unit"></span></div></div>
+              <div class="hv-panel-foot"><span>PARIS, FR</span><span>48.8566° N</span><span>2.3522° E</span></div>
+            </div>
+            <div class="hv-stat" aria-hidden="true">
+              <span class="hv-stat-label">DISPONIBILITÉ</span>
+              <strong>99.99%</strong>
+              <div class="hv-bars"><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="is-hi"></i><i class="is-mid"></i><i class=""></i><i class="is-hi"></i></div>
+            </div>
+            <div class="hv-ssl" aria-hidden="true">
+              <span class="hv-ssl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.2 2.9 7.6 7 9.5 4.1-1.9 7-5.3 7-9.5V6l-7-3Z"/><path d="m9 12 2.2 2.2L15.2 10"/></svg></span>
+              <span class="hv-ssl-copy"><strong>SSL inclus</strong><small>Protection active</small></span>
+            </div>
+          </div></div>
+      </section>
+      <div class="trust-strip" aria-label="Atouts de l'infrastructure">
+        <span>Infrastructure française</span><i aria-hidden="true"></i><span>Support réactif</span><i aria-hidden="true"></i><span>Sécurité SSL</span>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <div class="brand">
+              <img class="brand-logo" src="assets/hebergratuit-logo.svg" alt="Hebergratuit.com">
+            </div>
+            <p>L'hébergement web gratuit, rapide et fiable pour donner vie à vos projets en ligne.</p>
+            <p class="systems-note"><span></span>Tous les systèmes sont opérationnels</p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Solutions</h3>
+            <a href="https://www.hebergratuit.com/panel/index.php?rp=/store/hebergement-web">Hébergement Gratuit</a>
+            <a href="https://www.azote.org/">Nom de domaine Gratuit</a>
+            <a href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting">Emails</a>
+            <a href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting">Server</a>
+          </div>
+
+          <div class="footer-column">
+            <h3>Espace client</h3>
+            <a href="https://www.hebergratuit.com/manage/order/config/preconfig/hosting">Inscription</a>
+            <a href="https://www.hebergratuit.com/manage/client/login/">Espace Client</a>
+            <a href="https://www.hebergratuit.com/manage/client/plugin/support_manager/client_tickets/departments/">Support Ticket</a>
+            <a href="https://www.hebergratuit.com/manage/client/plugin/support_manager/client_tickets/departments/">Contact</a>
+          </div>
+
+          <div class="footer-column">
+            <h3>Informations</h3>
+            <a href="https://www.hebergratuit.com/">À propos</a>
+            <a href="mailto:signaler@hebergratuit.com">Abuse Report</a>
+            <a href="https://www.hebergratuit.com/">Conditions d'utilisation</a>
+            <a href="https://www.hebergratuit.com/">Confidentialité</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div><span>© 2026 Hebergratuit.com. Tous droits réservés.</span><span>France <i aria-hidden="true"></i> Français</span></div>
+      </div>
+    </footer>
+  </body>
+</html>
